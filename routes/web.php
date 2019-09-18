@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('questions')->name('questions.')->group(function () {
+    Route::get('/', 'QuestionsController@index')->name('index');
+});
